@@ -35,4 +35,13 @@ def private_timeline():
 
     return 'PRIVATE!'
 
+@app.route('/users/')
+def user_list():
+    users = User.select().order_by(User.username)
+    return object_list('user_list.html', users, 'user_list')
 
+@app.route('/users/<username>/')
+def user_detail(username):
+    user = get_object_or_404(User, User.username==username)
+    messages = user.message_set.order_by(Message.pub_date.desc())
+    return object_list('user_detail.html', messages, 'message_list', person=user)

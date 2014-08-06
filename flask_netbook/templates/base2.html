@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Tweepee</title>
+<div class=page>
+  <div class=metanav>
+  {% if not session.logged_in %}
+    <a href="{{ url_for('auth.login') }}">log in</a>
+    <a href="{{ url_for('join') }}">join</a>
+  {% else %}
+    <a href="{{ url_for('create') }}">create</a>
+    <a href="{{ url_for('auth.logout') }}">log out</a>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  <h2>{% block content_title %}{% endblock %}</h2>
+  {% block content %}{% endblock %}
+</div>
