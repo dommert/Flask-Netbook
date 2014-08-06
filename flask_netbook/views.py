@@ -9,8 +9,25 @@ from flask import render_template, flash
 from app import app
 
 
+@app.route('/')
+def front_index():
+    return 'Frontpage'
+
 @app.route('/notes/', methods=['GET','POST'])
-def notes():
+def notes_list():
     return 'Notes'
 
-@app.route
+@app.route('/note/<noteid>')
+def note_view(noteid):
+    return 'View a Note'
+
+@app.route('/note/add/')
+def note_add():
+    return 'Add a Note'
+
+@app.route('note/<noteid>/edit')
+def note_edit(noteid):
+    return 'Edit a note'
+
+
+

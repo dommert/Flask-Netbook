@@ -1,15 +1,15 @@
 # Flask-Netbook Version 0.0.1
 # App.py
 
+# Flask
 from flask import Flask
-from app import app, db
-from views import *
-from models import *
-
+# Netbook
+    #from models import *
+    #from views import *
 
 app = Flask(__name__)
 app.config.from_object('config.Configuration')
 
-db = Database(app)
+# db = Database(app)
 
 
