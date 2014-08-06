@@ -19,6 +19,9 @@ class User(db.Model, BaseUser):
     active = BooleanField(default=True)
     admin = BooleanField(default=False)
 
+    def __unicode__(self):
+        return self.username
+
 # Note Class
 class Note(db.Model):
     created = DateTimeField(default=datetime.datetime.now)

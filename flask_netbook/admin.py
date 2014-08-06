@@ -8,6 +8,9 @@ from models import User, Note
 from flask_turboduck.admin import Admin
 
 
-admin = Admin(app, db)
+admin = Admin(app, auth, branding='Example Site')
+auth.register_admin(admin)
 admin.register(Note)
 admin.register(User)
+admin.setup()
+
