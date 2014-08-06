@@ -3,13 +3,14 @@
 
 # Flask
 from flask import Flask
+# Flask-TurboDuck
+from flask_turboduck.db import Database
+from flask_turboduck.auth import Auth
 # Netbook
-    #from models import *
-    #from views import *
+
 
 app = Flask(__name__)
 app.config.from_object('config.Configuration')
 
-# db = Database(app)
-
-
+db = Database(app)
+auth = Auth(app, db)
