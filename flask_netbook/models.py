@@ -2,22 +2,25 @@
 # Models.py
 
 import datetime
-# Flask
-from flask import Flask
-# PeeWee
-from peewee import *
-# Turbo-Duck
-from flask_turboduck import *
-from flask_turboduck.auth import Auth, BaseUser
-# Netbook
 from app import app, db, auth
+from peewee import *
+from flask_turboduck.auth import Auth, BaseUser
+
 from config import Configuration
 
 
 # -----------------------------------------------------
+# User Class
+class User(db.Model, BaseUser):
+    username = CharField()
+    password = CharField()
+    email = CharField()
+    join_date = DateTimeField(default=datetime.datetime.now)
+    active = BooleanField(default=True)
+    admin = BooleanField(default=False)
+
 # Note Class
 class Note(db.Model):
     created = DateTimeField(default=datetime.datetime.now)
     message = BlobField()
 
-# User Class

@@ -10,8 +10,7 @@ from flask_rum.main import rum
 from app import app, db, auth
 from views import *
 from models import *
-from admin import *
-from admin_user import *
+from admin import admin
 
 
 
@@ -21,11 +20,11 @@ app.config.from_object(rum_config)
 # Sample override of Theme
 app.config.THEME_FOLDER='rum/banana/'
 
+admin.setup()
 
 if __name__ == '__main__':
     app.register_blueprint(rum) #  Flask-Rum Blueprint
     auth.User.create_table(fail_silently=True)
     Note.create_table(fail_silently=True)
-
     app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])
 
