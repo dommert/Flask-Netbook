@@ -1,13 +1,12 @@
 # Flask-Netbook Version 0.0.1
 # Views.py
 
-# Flask
-from flask import Flask
-from flask import url_for, redirect
-from flask import render_template, flash
-# Netbook
+import datetime
 from app import app
-
+from auth import auth
+from models import User, Note
+from flask import request, redirect, url_for, render_template, flash
+from flask_turboduck.utils import get_object_or_404, object_list
 
 @app.route('/')
 def front_index():
@@ -29,5 +28,11 @@ def note_add():
 def note_edit(noteid):
     return 'Edit a note: ' +noteid
 
+@app.route('/private/')
+@auth.login_required
+def private_timeline():
+    user = auth.get_logged_in_user()
+
+    return 'PRIVATE!'
 
 

@@ -2,11 +2,9 @@
 # Models.py
 
 import datetime
-from app import app, db, auth
+from app import db
 from peewee import *
-from flask_turboduck.auth import Auth, BaseUser
-
-from config import Configuration
+from flask_turboduck.auth import BaseUser
 
 
 # -----------------------------------------------------
