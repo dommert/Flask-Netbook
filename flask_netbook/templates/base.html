@@ -1,0 +1,14 @@
+{% extends 'base_note.html' %}
+
+{% block rum_nav %}
+   {% include config.TEMPLATE_DEFAULTS['nav'] %}
+{% endblock %}
+
+{% block rum_content %}
+ {% block content %}
+ {% endblock %}
+{% endblock %}
+
+{% block rum_footer %}
+   {% include config.TEMPLATE_DEFAULTS['footer'] %}
+{% endblock %}
