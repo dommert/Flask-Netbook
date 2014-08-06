@@ -15,11 +15,11 @@ def front_index():
 
 @app.route('/notes/', methods=['GET','POST'])
 def notes_list():
-    return 'Notes'
+    return render_template('base_note.html')
 
 @app.route('/note/<noteid>')
 def note_view(noteid):
-    return 'View a Note: '+noteid
+    return render_template('note.html')
 
 @app.route('/note/add/')
 def note_add():
