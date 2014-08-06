@@ -19,15 +19,15 @@ def notes_list():
 
 @app.route('/note/<noteid>')
 def note_view(noteid):
-    return 'View a Note'
+    return 'View a Note: '+noteid
 
 @app.route('/note/add/')
 def note_add():
     return 'Add a Note'
 
-@app.route('note/<noteid>/edit')
+@app.route('/note/<noteid>/edit')
 def note_edit(noteid):
-    return 'Edit a note'
+    return 'Edit a note: ' +noteid
 
 
 
