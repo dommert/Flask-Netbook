@@ -9,7 +9,7 @@
         <h3> Users</h3>
   <ul>
     {% for person in user_list %}
-      <li><a href="{{ url_for('user_detail', username=person.username) }}"></a>{{ person.username }}</li>    {% endfor %}
+      <li><a href="{{ url_for('user_detail', username=person.username) }}"></a>{{ person.username }} {% if person.email %} Email: {{ person.email }} {% else %} No Email! {% endif %}</li>    {% endfor %}
   </ul>
 </P>
 {% endblock %}

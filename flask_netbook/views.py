@@ -44,3 +44,7 @@ def user_list():
 def user_detail(username):
     user = get_object_or_404(User, User.username==username)
     return user
+
+@app.route('/login/')
+def login():
+    return redirect('/accounts/login/')
