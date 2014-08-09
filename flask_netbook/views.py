@@ -13,7 +13,7 @@ def front_index():
     return 'Frontpage'
 
 @app.route('/notes/', methods=['GET','POST'])
-def notes_list():
+def notes_index():
     return render_template('base_note.html')
 
 @app.route('/note/<noteid>')
