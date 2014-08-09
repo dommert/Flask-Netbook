@@ -5,14 +5,24 @@
 {% endblock %}
 
 {% block rum_content %}
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
     <div class="panel">
       <h3>Note</h3>
-    <P > This is the default Note page. </P>
+    <P > This is the default Note page. Welcome {{ user }} </P>
     <form method="post">
     <fieldset>
       {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
       <textarea name="message"></textarea>
-    <button type="submit"></button>
+    <button type="submit">SUBMIT</button>
     </fieldset>
     </form>
 

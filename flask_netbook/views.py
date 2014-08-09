@@ -13,6 +13,7 @@ def front_index():
     return 'Frontpage'
 
 @app.route('/notes/', methods=['GET','POST'])
+@auth.login_required
 def notes_index():
     if request.method == 'POST' and request.form['message']:
         user = auth.get_logged_in_user()
