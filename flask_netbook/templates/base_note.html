@@ -7,7 +7,7 @@
 {% block rum_content %}
   {% with messages = get_flashed_messages() %}
   {% if messages %}
-    <ul class=flashes>
+  <ul class='alert-box radius success'>
     {% for message in messages %}
       <li>{{ message }}</li>
     {% endfor %}
