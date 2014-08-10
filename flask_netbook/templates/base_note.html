@@ -24,6 +24,7 @@
     <P > This is the default Note page. Welcome {{ user }} </P>
     <form method="post">
     <fieldset>
+          <legend>Add a Note</legend>
       {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
      TITLE: <input type="text" name="title">
      NOTE: <textarea name="message"></textarea>
