@@ -47,7 +47,7 @@ class UserStatsPanel(AdminPanel):
 
 # ---- Admin Panels -----
 class NoteAdmin(ModelAdmin):
-    columns = ('user', 'message')
+    columns = ('user', 'message', 'title',)
     exclude = ('created',)
 
 
