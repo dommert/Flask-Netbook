@@ -8,7 +8,7 @@
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   <p class='alert-box radius success'>
-    <ul>
+    <ul class="no-bullet">
         {% for message in messages %}
             <li>{{ message }}</li>
         {% endfor %}
