@@ -19,4 +19,8 @@ migrate(
     migrator.add_column('Note', 'title', title_field),
     #migrator.add_column('some_table', 'status', status_field),
     #migrator.drop_column('some_table', 'old_column'),
+    #migrator.rename_column('story', 'pub_date', 'publish_date'),
+    #migrator.drop_not_null('story', 'pub_date'),
+    #migrator.add_not_null('story', 'modified_date'),
+    #migrator.rename_table('story', 'stories_tbl'),
 )
