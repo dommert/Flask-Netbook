@@ -7,13 +7,13 @@
 {% block rum_content %}
   {% with messages = get_flashed_messages() %}
   {% if messages %}
-  <p class='alert-box radius success'>
+  <div class='alert-box radius success'>
     <ul class="no-bullet">
         {% for message in messages %}
             <li>{{ message }}</li>
         {% endfor %}
     </ul>
-  </p>
+  </div>
   {% endif %}
 {% endwith %}
 
