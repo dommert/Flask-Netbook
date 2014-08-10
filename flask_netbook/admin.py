@@ -30,7 +30,7 @@ class NotePanel(AdminPanel):
 
     def get_context(self):
         return {
-            'note_list': Note.select().order_by(Note.created.desc()).paginate(1, 3)
+            'note_list': Note.select().order_by(Note.created.desc()).paginate(1, 4)
         }
 
 class UserStatsPanel(AdminPanel):

@@ -17,7 +17,7 @@ def front_index():
 def notes_index():
     if request.method == 'POST' and request.form['message']:
         user = auth.get_logged_in_user()
-        message = Note.create(user=user, message=request.form['message'],)
+        message = Note.create(user=user, message=request.form['message'], title=request.form['title'],)
         message.save()
         flash('You submited data!')
     return render_template('base_note.html')

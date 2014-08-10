@@ -21,7 +21,8 @@
     <form method="post">
     <fieldset>
       {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
-      <textarea name="message"></textarea>
+     TITLE: <input type="text" name="title">
+     NOTE: <textarea name="message"></textarea>
     <button type="submit">SUBMIT</button>
     </fieldset>
     </form>

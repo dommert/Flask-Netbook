@@ -24,5 +24,6 @@ class User(db.Model, BaseUser):
 class Note(db.Model):
     created = DateTimeField(default=datetime.datetime.now)
     user = ForeignKeyField(User)
+    title = TextField()
     message = BlobField()
 
