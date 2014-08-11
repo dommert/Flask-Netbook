@@ -10,7 +10,7 @@ from flask_turboduck.auth import BaseUser
 # -----------------------------------------------------
 # User Class
 class User(db.Model, BaseUser):
-    username = CharField()
+    username = CharField(unique=True)
     password = CharField()
     email = CharField()
     join_date = DateTimeField(default=datetime.datetime.now)
