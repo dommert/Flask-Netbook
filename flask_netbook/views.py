@@ -8,10 +8,6 @@ from models import User, Note
 from flask import request, redirect, url_for, render_template, flash
 from flask_turboduck.utils import get_object_or_404, object_list
 
-@app.route('/')
-def front_index():
-    return 'Frontpage'
-
 @app.route('/notes/', methods=['GET','POST'])
 @auth.login_required
 def notes_index():

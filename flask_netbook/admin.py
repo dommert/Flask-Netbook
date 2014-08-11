@@ -50,9 +50,26 @@ class NoteAdmin(ModelAdmin):
     columns = ('user', 'message', 'title',)
     exclude = ('created',)
 
+class UserAdmin(ModelAdmin):
+    columns = ('username', 'email', 'is_superuser',)
+
+    # Make sure the user's password is hashed, after it's been changed in
+    # the admin interface. If we don't do this, the password will be saved
+    # in clear text inside the database and login will be impossible.
+    def save_model(self, instance, form, adding=False):
+        orig_password = instance.password
+
+        user = super(UserAdmin, self).save_model(instance, form, adding)
+
+        if orig_password != form.password.data:
+            user.set_password(form.password.data)
+            user.save()
+
+        return user
+
 
 auth.register_admin(admin)
 admin.register(Note, NoteAdmin)
-admin.register(User)
+admin.register(User, UserAdmin)
 admin.register_panel('Notes', NotePanel)
 admin.register_panel('User Stats', UserStatsPanel)
