@@ -51,7 +51,7 @@ class NoteAdmin(ModelAdmin):
     exclude = ('created',)
 
 class UserAdmin(ModelAdmin):
-    columns = ('username', 'email', 'is_superuser',)
+    columns = ('username', 'email', 'admin')
 
     # Make sure the user's password is hashed, after it's been changed in
     # the admin interface. If we don't do this, the password will be saved
