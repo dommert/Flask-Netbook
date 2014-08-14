@@ -9,22 +9,22 @@ from flask import request, redirect, url_for, render_template, flash
 from flask_turboduck.utils import get_object_or_404, object_list
 
 @app.route('/notes/', methods=['GET','POST'])
-@auth.login_required
 def notes_index():
-    if request.method == 'POST' and request.form['message']:
-        user = auth.get_logged_in_user()
-        message = Note.create(user=user, message=request.form['message'], title=request.form['title'],)
-        message.save()
-        flash('You submited data!')
-    return render_template('base_note.html')
+    return
 
 @app.route('/note/<noteid>')
 def note_view(noteid):
     return render_template('note.html')
 
 @app.route('/note/add/')
-def note_add():
-    return 'Add a Note'
+@auth.login_required
+def note_add(): # Add a Note
+    if request.method == 'POST' and request.form['message']:
+        user = auth.get_logged_in_user()
+        message = Note.create(user=user, message=request.form['message'], title=request.form['title'],)
+        message.save()
+        flash('You submited data!')
+    return render_template('base_note.html')
 
 @app.route('/note/<noteid>/edit')
 def note_edit(noteid):
