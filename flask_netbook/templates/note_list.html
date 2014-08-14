@@ -23,7 +23,26 @@
       <h3>Note</h3>
     <P > Welcome {{ user }}! Your notes are ..  </P>
 
-
+  <table>
+   <thead>
+    <tr>
+      <th width="200">Title</th>
+      <th width="150">User</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for note in notes %}
+    <tr>
+      <td>{{ note.title }}</td>
+      <td>{{ user }}</td>
+      <td>{{ note.message }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+ </tr>
+  </tbody>
+</table>
 
     </div>
 {% endblock %}

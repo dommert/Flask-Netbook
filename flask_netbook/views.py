@@ -11,9 +11,10 @@ from flask_turboduck.utils import get_object_or_404, object_list
 # Note List
 @app.route('/note/', methods=['GET','POST'])
 @app.route('/notes/', methods=['GET','POST'])
-def notes_index():
-
-    return render_template('note_list.html')
+def note_list():
+    user = auth.get_logged_in_user()
+    notes = Note.select().where(Note.user == user)
+    return object_list('note_list.html', notes, 'notes')
 
 # Note View
 @app.route('/note/<noteid>')
