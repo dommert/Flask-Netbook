@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block rum_content %}
-{% include flash_message.html %}
+{% if flash %}{% include flash_message.html %}{% endif %}
  {% block note_content %} {% endblock %}
 {% endblock %}
 
