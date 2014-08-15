@@ -38,7 +38,7 @@
       <td>{{ note.title }}</td>
       <td>{{ user }}</td>
       <td>{{ note.message }}</td>
-      <td><a href="{{ url_for('note_edit', noteid=note.id) }}">Edit</a></td>
+      <td> <a href="{{ url_for('note_view', noteid=note.id) }}">View</a>&nbsp;| <a href="{{ url_for('note_edit', noteid=note.id) }}">Edit</a></td>
     </tr>
   {% endfor %}
   </table>
