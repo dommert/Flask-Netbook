@@ -19,10 +19,8 @@ def note_list():
 # Note View
 @app.route('/note/<noteid>', methods=['GET','POST'])
 def note_view(noteid):
-    user = auth.get_logged_in_user()
-    query = Note.get(Note.user == user, Note.id == noteid)
-    note = get_object_or_404(query)
-    #get_object_or_404()
+    user = auth.get_logged_in_user() # Logged In User
+    note = get_object_or_404(Note, Note.select().where(Note.user==user, Note.id==noteid))
     return render_template('note_view.html', note=note)
 
 # Note Add
