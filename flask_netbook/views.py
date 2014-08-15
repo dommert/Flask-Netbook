@@ -17,10 +17,10 @@ def note_list():
     return object_list('note_list.html', notes, 'notes')
 
 # Note View
-@app.route('/note/<noteid>', methods=['GET','POST'])
+@app.route('/note/<int:noteid>', methods=['GET','POST'])
 def note_view(noteid):
     user = auth.get_logged_in_user() # Logged In User
-    note = get_object_or_404(Note, Note.select().where(Note.id==noteid, Note.user==user))
+    note = get_object_or_404(Note, Note.id==noteid, Note.user==user)
     return render_template('note_view.html', note=note)
 
 # Note Add
