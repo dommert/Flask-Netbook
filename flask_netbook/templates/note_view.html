@@ -1,8 +1,4 @@
-{% extends config.THEME_FOLDER+'onecol.html' %}
-
-{% block rum_nav %}
-   {% include config.TEMPLATE_DEFAULTS['nav'] %}
-{% endblock %}
+{% extends 'base_note.html' %}
 
 {% block rum_content %}
 
@@ -33,7 +29,3 @@
 {% endblock note_view %}
 
 {% endblock rum_content %}
-
-{% block rum_footer %}
-   {% include config.TEMPLATE_DEFAULTS['footer'] %}
-{% endblock %}
