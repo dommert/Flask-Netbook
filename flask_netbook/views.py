@@ -20,7 +20,7 @@ def note_list():
 @app.route('/note/<noteid>', methods=['GET','POST'])
 def note_view(noteid):
     user = auth.get_logged_in_user() # Logged In User
-    note = get_object_or_404(Note, Note.select().where(Note.user==user, Note.id==noteid))
+    note = get_object_or_404(Note, Note.select().where(Note.id==noteid, Note.user==user))
     return render_template('note_view.html', note=note)
 
 # Note Add
@@ -32,12 +32,16 @@ def note_add():
         message = Note.create(user=user, message=request.form['message'], title=request.form['title'],)
         message.save()
         flash('You submited data!')
+        return redirect(url_for('note_list'))
     return render_template('note_add.html')
 
 # Note Edit
-@app.route('/note/<noteid>/edit')
+@app.route('/note/<noteid>/edit', methods=['GET','POST'])
+@auth.login_required
 def note_edit(noteid):
-    return 'Edit a note: ' +noteid
+    user = auth.get_logged_in_user() # Logged In User
+    note = get_object_or_404(Note, Note.select().where(Note.user==user, Note.id==noteid))
+    return render_template('note_edit.html', note=note)
 
 # Private Area
 @app.route('/private/')

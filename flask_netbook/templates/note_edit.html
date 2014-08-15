@@ -1,0 +1,40 @@
+{% extends config.THEME_FOLDER+'onecol.html' %}
+
+{% block rum_nav %}
+   {% include config.TEMPLATE_DEFAULTS['nav'] %}
+{% endblock %}
+
+{% block rum_content %}
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <div class='alert-box radius success'>
+    <ul class="no-bullet">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+{% endwith %}
+
+
+    <div class="panel">
+      <h3>Note</h3>
+    <P > This is the default Note page. Welcome {{ user }} </P>
+    <form method="post" action="{{ url_for('note_add') }}">
+    <fieldset>
+          <legend>Add a Note</legend>
+      {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
+     TITLE: <input type="text" name="title" value="{{ note.title }}">
+     NOTE: <textarea name="message">{{ note.message }}</textarea>
+    <button type="submit">SUBMIT</button>
+    </fieldset>
+    </form>
+
+    </div>
+{% endblock %}
+
+{% block rum_footer %}
+   {% include config.TEMPLATE_DEFAULTS['footer'] %}
+{% endblock %}
