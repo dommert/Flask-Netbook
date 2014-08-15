@@ -5,7 +5,21 @@
 {% endblock %}
 
 {% block rum_content %}
-{% if flash %}{% include flash_message.html %}{% endif %}
+
+  <section class="row" id="flash_message">
+   {% with flash_messages = get_flashed_messages() %}
+    {% if flash_messages %}
+    <div class='alert-box radius success medium-8 columns'>
+        <ul class="no-bullet">
+        {% for flash_message in flash_messages %}
+        <li>{{ flash_message }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+  </section>
+    {% endif %}
+{% endwith %}
+
  {% block note_content %} {% endblock %}
 {% endblock %}
 
