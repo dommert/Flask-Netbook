@@ -5,9 +5,8 @@
 {% endblock %}
 
 {% block rum_content %}
-
- {% block note_content %}
- {% endblock %}
+{% extends flash_message.html %}
+ {% block note_content %} {% endblock %}
 {% endblock %}
 
 {% block rum_footer %}
