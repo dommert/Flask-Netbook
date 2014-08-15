@@ -24,8 +24,10 @@
         <P > Welcome {{ user }}! </P>
 
         <section id="note_view">
-            <p>Title</p>
-            <div id="note_message">Message</div>
+            <p>{{ note.title }}</p>
+            <div id="note_message">
+                <P>{{ note.message }}</P>
+            </div>
         </section>
     </div>
 {% endblock note_view %}
