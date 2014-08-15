@@ -42,9 +42,10 @@ def note_edit(noteid):
     user = auth.get_logged_in_user() # Logged In User
     note = get_object_or_404(Note, Note.user==user, Note.id==noteid)
     if request.method == 'POST' and request.form['message']:
-        message = Note.create(user=user, message=request.form['message'], title=request.form['title'],)
-        message.save()
-        flash('Thanks! You submited data!')
+        note.message = request.form['message']
+        note.title = request.form['title']
+        note.save()
+        flash('Thanks! You updated the data!')
         return redirect(url_for('note_list'))
     return render_template('note_edit.html', note=note)
 

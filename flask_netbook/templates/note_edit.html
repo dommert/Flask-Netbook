@@ -22,7 +22,7 @@
     <div class="panel">
       <h3>Note</h3>
     <P > This is the default Note page. Welcome {{ user }} </P>
-    <form method="post" action="{{ url_for('note_add') }}">
+    <form method="post">
     <fieldset>
           <legend>Add a Note</legend>
       {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
