@@ -19,7 +19,7 @@ def note_list():
 # Note View
 @app.route('/note/<noteid>')
 def note_view(noteid):
-    return render_template('note.html')
+    return render_template('note_view.html')
 
 # Note Add
 @app.route('/note/add/', methods=['GET','POST'])
