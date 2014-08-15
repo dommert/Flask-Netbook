@@ -1,21 +1,6 @@
 {% extends 'base_note.html' %}
 
-
-{% block rum_content %}
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-
-  <div class='alert-box radius success'>
-    <ul class="no-bullet">
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-{% endwith %}
-
-
+{% block note_content %}
     <div class="panel">
       <h3>Note</h3>
     <P > Welcome {{ user }}! Your notes are ..  </P>
