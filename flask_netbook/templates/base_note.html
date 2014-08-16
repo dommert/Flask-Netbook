@@ -6,7 +6,7 @@
 
 {% block rum_content %}
 
-  <section class="row" id="flash_message">
+  <div class="row" id="flash_message">
    {% with flash_messages = get_flashed_messages() %}
     {% if flash_messages %}
     <div data-alert class='alert-box radius success medium-8 columns medium-centered'>
@@ -17,7 +17,7 @@
         </ul>
         <a href="#" class="close">&times;</a>
     </div>
-  </section>
+  </div>
     {% endif %}
 {% endwith %}
 
