@@ -2,7 +2,7 @@
 
 {% block note_content %}
 
-
+   <script src="{{ url_for('static', filename='js/ckeditor/ckeditor.js') }}"></script>
     <div class="panel">
       <h3>Note</h3>
     <P > This is the default Note page. Welcome {{ user }} </P>
@@ -11,10 +11,11 @@
           <legend>Add a Note</legend>
       {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
      TITLE: <input type="text" name="title" value="{{ note.title }}">
-     NOTE: <textarea name="message">{{ note.message }}</textarea>
+     NOTE: <textarea name="message" class="ckeditor">{{ note.message }}</textarea>
     <button type="submit">SUBMIT</button>
     </fieldset>
     </form>
 
     </div>
 {% endblock %}
+
