@@ -9,18 +9,9 @@ from admin import admin
 from models import *
 from views import *
 
-
-
+from rum import rum
 admin.setup()
 #api.setup()
-
-
-from flask_rum.main import rum
-import flask_rum.rum_config as rum_config
-app.config.from_object(rum_config)
-app.config.THEME_FOLDER='rum/banana/'
-app.register_blueprint(rum)
-
 
 if __name__ == '__main__':
     auth.User.create_table(fail_silently=True)
