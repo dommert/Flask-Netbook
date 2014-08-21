@@ -1,3 +1,0 @@
-Versions
-=================
-Zurb Foundation: Version 5.3
