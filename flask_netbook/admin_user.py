@@ -1,4 +1,4 @@
-# Flask-Netbook Version 0.0.2
+# Flask-Netpad Version 0.0.3
 # admin_user.py
 
 # Creates User table and Admin User
