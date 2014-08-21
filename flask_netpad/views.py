@@ -13,7 +13,7 @@ from flask_turboduck.utils import get_object_or_404, object_list
 @app.route('/notes/', methods=['GET','POST'])
 def note_list():
     user = auth.get_logged_in_user()
-    notes = Note.select().where(Note.user == user)
+    notes = Note.select().where(Note.user == user).order_by(Note.created.desc())
     return object_list('note_list.html', notes, 'notes')
 
 # Note View

@@ -1,5 +1,5 @@
 # Flask-Netpad Version 0.0.3
-# config.py
+# Config.py
 
 class Configuration(object):
     DATABASE = {
