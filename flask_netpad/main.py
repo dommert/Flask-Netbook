@@ -8,8 +8,8 @@ from admin import admin
 #from api import api
 from models import *
 from views import *
-
 from rum import rum
+
 admin.setup()
 #api.setup()
 

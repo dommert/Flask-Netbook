@@ -3,6 +3,7 @@
 
 # Flask
 from flask import Flask
+from peewee import *
 # Flask-TurboDuck
 from flask_turboduck.db import Database
 
